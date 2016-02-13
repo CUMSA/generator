@@ -1,0 +1,18 @@
+textarea {
+	width: 800px;
+	height: 200px;
+}
+
+#preview table {
+	border: 1px solid #777;
+}
+
+#preview table table {
+	border: none;
+}
+
+.csection {
+	margin: 10px;
+	padding: 10px;
+	border: 1px solid;
+}
