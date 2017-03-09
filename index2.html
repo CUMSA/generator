@@ -1,0 +1,93 @@
+<html>
+<head>
+	<title>Chronicle Generator</title>
+	<script type="text/javascript" src="scripts/generator2.js"></script>
+	<script type="text/javascript" src="scripts/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="scripts/jquery-migrate-1.2.1.min.js"></script>
+	<script type="text/javascript" src="scripts/jHtmlArea-0.7.5.js"></script>
+	<script type="text/javascript" src="scripts/jquery.htmlClean.js"></script>
+	<link rel="stylesheet" type="text/css" href="style/style.css" />
+	<link rel="stylesheet" type="text/css" href="style/jHtmlArea.css" />
+</head>
+<body onload="init(); return false;">
+
+	<h1>Chronicle Generator</h1>
+
+	<div id="instructions">
+
+		<h2>How to use</h2>
+
+		<p>Click "Create new section" for every section you need to create in the Chronicle. Every section has its settings:</p>
+
+		<ul>
+			<li>Heading: heading of the section.</li>
+			<li>Subsection: e.g. section 2.3, 3.4 but not section 2, 5 etc.</li>
+			<li>Section filler: a section heading with no body e.g. <em>4. Miscellaneous</em>, which has no body text, and is followed by a section <em>4.1 ...</em>. Makes for good formatting.</li>
+			<li>Category: pick one category.</li>
+			<li>Delete section: deletes section. This cannot be undone.</li>
+		</ul>
+
+		<p>The first box is the opening paragraph of the e-mail. The "table of contents" is automatically generated.</p>
+
+		<p>You can always click on "Preview" to generate the HTML code and also preview the final e-mail at the bottom of the screen.</p>
+
+		<p>A session <em>cannot</em> be saved, so it is best to do it in a separate document first and using this to format everything nicely.</p>
+
+		<p>For best results, paste in <em>plain text</em>. Bold, italic, and underline functions are provided for extra formatting. Hyperlinks can be made as well.</p>
+
+		<h2>Sending the Chronicle</h2>
+
+		<p>This is quite troublesome because it is difficult to send an e-mail with the precise HTML generated. Open <a href="https://spreadsheets.google.com/spreadsheet/ccc?key=0AmxApiq9b5Q9dGpyNy1jMjhrUk0tUkVFcmpJYlF2d2c&newcopy=true">this Google Docs spreadsheet (in a new tab!)</a> and then choose Gmail -> HTML Mail. Authorise the sheet (it contains a safe script) to send mails using your Gmail account. This sheet should be in your Google Drive from now on.</p>
+
+		<p>Paste the HTML code generated below and <em>send the e-mail to yourself</em>. Once you're satisfied, send it using your cumsa.org alias to the mailing list.</p>
+
+	</div>
+
+	<hr />
+
+	<div id="controls">
+		<button type="button" onclick="createNewSection(); return false;">Create new section</button>
+		<button type="button" onclick="preview(); return false;">Preview</button>
+	</div>
+
+	<hr />
+
+	<div id="chead" class="csection">
+	</div>
+
+	<div id="csections">
+	</div>
+
+	<hr />
+
+	<div id="code">
+	</div>
+
+	<hr />
+
+	<div id="preview">
+	</div>
+
+	<hr />
+
+	<div id="notes">
+
+		<h2>Technical notes</h2>
+
+		<p>This uses:</p>
+
+		<ul>
+			<li>jQuery 1.10.2</li>
+			<li>jQuery Migrate 1.2.1 - for compatability with jHtmlArea 0.7.5</li>
+			<li><a href="https://jhtmlarea.codeplex.com/">jHtmlArea 0.7.5</a></li>
+			<li><a href="https://code.google.com/p/jquery-clean/">jquery-clean</a></li>
+		</ul>
+
+		<p>HTML is sanitised with an element whitelist, to remove font elements particularly, which may screw up font formatting. jHtmlArea is reduced to just bold, italics, underline, and hyperlinks because block elements (h1, h2) may be removed from e-mail clients.</p>
+
+		<p>HTML e-mail sending method courtesy of <a href="http://www.labnol.org/internet/send-html-email/">these guys</a>.</p>
+
+	</div>
+
+</body>
+</html>
